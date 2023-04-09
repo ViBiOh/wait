@@ -18,8 +18,8 @@ Be careful when using the CLI values, if someone list the processes on the syste
 
 ```bash
 Usage of wait:
-  -address string
-        [wait] Dial address, e.g. host:port {WAIT_ADDRESS}
+  -address value
+        [wait] Dial address in the form network:host:port, e.g. tcp:localhost:5432 {WAIT_ADDRESS}
   -loggerJson
         [logger] Log format as JSON {WAIT_LOGGER_JSON}
   -loggerLevel string
@@ -32,8 +32,8 @@ Usage of wait:
         [logger] Key for timestamp in JSON {WAIT_LOGGER_TIME_KEY} (default "time")
   -next string
         [wait] Action to execute after {WAIT_NEXT}
-  -protocol string
-        [wait] Dial protocol (udp or tcp) {WAIT_PROTOCOL} (default "tcp")
+  -nextArg value
+        [wait] Args for the action to execute {WAIT_NEXT_ARG}
   -timeout duration
         [wait] Timeout of retries {WAIT_TIMEOUT} (default 10s)
 ```

@@ -3,10 +3,13 @@ package main
 import (
 	"errors"
 	"flag"
+	"fmt"
 	"os"
 	"os/exec"
 	"os/signal"
 	"strings"
+	"sync"
+	"sync/atomic"
 	"syscall"
 	"time"
 
@@ -28,26 +31,49 @@ func main() {
 
 	loggerConfig := logger.Flags(fs, "logger")
 
-	protocol := flags.String(fs, "", "wait", "Protocol", "Dial protocol (udp or tcp)", "tcp", nil)
-	address := flags.String(fs, "", "wait", "Address", "Dial address, e.g. host:port", "", nil)
+	addresses := flags.StringSlice(fs, "", "wait", "Address", "Dial address in the form network:host:port, e.g. tcp:localhost:5432", nil, nil)
 	timeout := flags.Duration(fs, "", "wait", "Timeout", "Timeout of retries", time.Second*10, nil)
 	next := flags.String(fs, "", "wait", "Next", "Action to execute after", "", nil)
+	args := flags.StringSlice(fs, "", "wait", "NextArg", "Args for the action to execute", nil, nil)
 
 	logger.Fatal(fs.Parse(os.Args[1:]))
 
 	logger.Global(logger.New(loggerConfig))
 
-	network := strings.TrimSpace(*protocol)
-	if len(network) == 0 {
-		logger.Fatal(errors.New("protocol is required"))
+	var wg sync.WaitGroup
+	var success atomic.Uint32
+
+	for _, address := range *addresses {
+		parts := strings.Split(strings.TrimSpace(address), ":")
+		if len(parts) != 3 {
+			logger.Fatal(errors.New("address has invalid format"))
+		}
+
+		if len(parts[0]) == 0 {
+			logger.Fatal(errors.New("network is required"))
+		}
+
+		if len(parts[1]) == 0 {
+			logger.Fatal(errors.New("host is required"))
+		}
+
+		if len(parts[2]) == 0 {
+			logger.Fatal(errors.New("port is required"))
+		}
+
+		wg.Add(1)
+		go func(network, address string) {
+			defer wg.Done()
+
+			if wait.Wait(network, address, *timeout) {
+				success.Add(1)
+			}
+		}(parts[0], fmt.Sprintf("%s:%s", parts[1], parts[2]))
 	}
 
-	addr := strings.TrimSpace(*address)
-	if len(addr) == 0 {
-		logger.Fatal(errors.New("address is required"))
-	}
+	wg.Wait()
 
-	if !wait.Wait(network, addr, *timeout) {
+	if len(*addresses) != int(success.Load()) {
 		os.Exit(1)
 	}
 
@@ -56,7 +82,7 @@ func main() {
 		return
 	}
 
-	command := exec.Command(action)
+	command := exec.Command(action, *args...)
 	command.Stdin = os.Stdin
 	command.Stdout = os.Stdout
 	command.Stderr = os.Stderr
