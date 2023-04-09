@@ -22,7 +22,6 @@ var listenedSignals = []os.Signal{
 	syscall.SIGINT,
 	syscall.SIGTERM,
 	syscall.SIGQUIT,
-	syscall.SIGCONT,
 	syscall.SIGHUP,
 }
 
