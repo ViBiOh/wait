@@ -5,10 +5,10 @@ ifneq ("$(wildcard .env)","")
 	export
 endif
 
-APP_NAME = goweb
+APP_NAME = wait
 PACKAGES ?= ./...
 
-MAIN_SOURCE = ./cmd/goweb
+MAIN_SOURCE = ./cmd/wait
 MAIN_RUNNER = go run $(MAIN_SOURCE)
 ifeq ($(DEBUG), true)
 	MAIN_RUNNER = dlv debug $(MAIN_SOURCE) --

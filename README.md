@@ -1,28 +1,16 @@
-# goweb
+# wait
 
-[![Build](https://github.com/ViBiOh/goweb/workflows/Build/badge.svg)](https://github.com/ViBiOh/goweb/actions)
-[![codecov](https://codecov.io/gh/ViBiOh/goweb/branch/main/graph/badge.svg)](https://codecov.io/gh/ViBiOh/goweb)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ViBiOh_goweb&metric=alert_status)](https://sonarcloud.io/dashboard?id=ViBiOh_goweb)
+[![Build](https://github.com/ViBiOh/wait/workflows/Build/badge.svg)](https://github.com/ViBiOh/wait/actions)
+[![codecov](https://codecov.io/gh/ViBiOh/wait/branch/main/graph/badge.svg)](https://codecov.io/gh/ViBiOh/wait)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ViBiOh_wait&metric=alert_status)](https://sonarcloud.io/dashboard?id=ViBiOh_wait)
 
 ## Getting started
 
-Golang binary is built with static link. You can download it directly from the [GitHub Release page](https://github.com/ViBiOh/goweb/releases) or build it by yourself by cloning this repo and running `make`.
+Golang binary is built with static link. You can download it directly from the [GitHub Release page](https://github.com/ViBiOh/wait/releases) or build it by yourself by cloning this repo and running `make`.
 
-A Docker image is available for `amd64`, `arm` and `arm64` platforms on Docker Hub: [vibioh/goweb](https://hub.docker.com/r/vibioh/goweb/tags).
+A Docker image is available for `amd64`, `arm` and `arm64` platforms on Docker Hub: [vibioh/wait](https://hub.docker.com/r/vibioh/wait/tags).
 
 You can configure app by passing CLI args or environment variables (cf. [Usage](#usage) section). CLI override environment variables.
-
-You'll find a Kubernetes exemple in the [`infra/`](infra) folder, using my [`app chart`](https://github.com/ViBiOh/charts/tree/main/app)
-
-## CI
-
-Following variables are required for CI:
-
-|            Name            |           Purpose           |
-| :------------------------: | :-------------------------: |
-|      **DOCKER_USER**       | for publishing Docker image |
-|      **DOCKER_PASS**       | for publishing Docker image |
-| **SCRIPTS_NO_INTERACTIVE** |  for running scripts in CI  |
 
 ## Usage
 
