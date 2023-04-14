@@ -1,7 +1,7 @@
 github.com/ViBiOh/flags v1.3.0 h1:onBzSsBXTAFus6l5RyjwrZ7vH7uKd54GtLoWHBF9XF0=
 github.com/ViBiOh/flags v1.3.0/go.mod h1:dwBidG6lR5ki7dkavuehBq3OTcV3S/i6yVvHhxxZv8o=
-github.com/ViBiOh/httputils/v4 v4.56.1 h1:XvGASUIJZr2sydKUW6D4ekn74bC8bKZGLr+1ZPzhVZE=
-github.com/ViBiOh/httputils/v4 v4.56.1/go.mod h1:eF+GKH+ZJs++0E1lSXfUAamFhbxxDGJcQfVowTAcbHg=
+github.com/ViBiOh/httputils/v4 v4.56.2 h1:zMtbaZM6Y5Z/STjq+uVH01nJC/CNzRCjPBjl4k9CDrw=
+github.com/ViBiOh/httputils/v4 v4.56.2/go.mod h1:5hlqEoyc0K9f23DouRbjg4AP691Ko6tGbNaVBlPc9k0=
 golang.org/x/sys v0.7.0 h1:3jlCCIQZPdOYu1h8BkNvLz8Kgwtae2cagcG/VamtZRU=
 golang.org/x/sys v0.7.0/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/term v0.7.0 h1:BEvjmm5fURWqcfbSKTdpkDXYBrUS1c0m8agp14W48vQ=
