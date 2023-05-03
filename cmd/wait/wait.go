@@ -30,10 +30,10 @@ func main() {
 
 	loggerConfig := logger.Flags(fs, "logger")
 
-	addresses := flags.StringSlice(fs, "", "wait", "Address", "Dial address in the form network:host:port, e.g. tcp:localhost:5432", nil, nil)
-	timeout := flags.Duration(fs, "", "wait", "Timeout", "Timeout of retries", time.Second*10, nil)
-	next := flags.String(fs, "", "wait", "Next", "Action to execute after", "", nil)
-	args := flags.StringSlice(fs, "", "wait", "NextArg", "Args for the action to execute", nil, nil)
+	addresses := flags.New("Address", "Dial address in the form network:host:port, e.g. tcp:localhost:5432").DocPrefix("wait").StringSlice(fs, nil, nil)
+	timeout := flags.New("Timeout", "Timeout of retries").DocPrefix("wait").Duration(fs, time.Second*10, nil)
+	next := flags.New("Next", "Action to execute after").DocPrefix("wait").String(fs, "", nil)
+	args := flags.New("NextArg", "Args for the action to execute").DocPrefix("wait").StringSlice(fs, nil, nil)
 
 	logger.Fatal(fs.Parse(os.Args[1:]))
 
