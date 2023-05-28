@@ -27,6 +27,7 @@ var listenedSignals = []os.Signal{
 
 func main() {
 	fs := flag.NewFlagSet("wait", flag.ExitOnError)
+	fs.Usage = flags.Usage(fs)
 
 	loggerConfig := logger.Flags(fs, "logger")
 
