@@ -1,10 +1,10 @@
 github.com/ViBiOh/flags v1.3.1 h1:OHkGtVBPb6CpgWUST1VS9heKvHWBgwpyM8fXnuJRRVU=
 github.com/ViBiOh/flags v1.3.1/go.mod h1:yQAIBf4HTymJDCF0Bl8QQHvQTr5uiUMQBa/A/ao1oM4=
-github.com/ViBiOh/httputils/v4 v4.58.2 h1:DvPY7VRiCaAM51Ut62cxppTVhU7xOAE1U+Fv7egSoG0=
-github.com/ViBiOh/httputils/v4 v4.58.2/go.mod h1:sYnHKhQ1wkboVX70+ABf2TbxA679wdcJoHDn4B50nQY=
+github.com/ViBiOh/httputils/v4 v4.59.0 h1:QSGv1zyDm37LG4v7D+PLPoYCnaLbMANwm3cWs+tyD8I=
+github.com/ViBiOh/httputils/v4 v4.59.0/go.mod h1:88t8dnEGBmdosIRJLqz4iSgjcScIp3zKOiSnx39Ay3Q=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
-github.com/stretchr/testify v1.8.2 h1:+h33VjcLVPDHtOdpUCuF+7gSuG3yGIftsP1YvFihtJ8=
+github.com/stretchr/testify v1.8.4 h1:CcVxjf3Q8PM0mHUKJCdn+eZZtm5yQwehR5yeSVQQcUk=
 golang.org/x/sys v0.8.0 h1:EBmGv8NaZBZTWvrbjNoL6HVt+IVy3QDQpJs7VRIw3tU=
 golang.org/x/sys v0.8.0/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/term v0.8.0 h1:n5xxQn2i3PC0yLAbjTpNT85q/Kgzcr2gIoX9OrJUols=
