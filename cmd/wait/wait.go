@@ -4,6 +4,7 @@ import (
 	"errors"
 	"flag"
 	"fmt"
+	"log"
 	"os"
 	"os/exec"
 	"os/signal"
@@ -36,7 +37,9 @@ func main() {
 	next := flags.New("Next", "Action to execute after").DocPrefix("wait").String(fs, "", nil)
 	args := flags.New("NextArg", "Args for the action to execute").DocPrefix("wait").StringSlice(fs, nil, nil)
 
-	logger.Fatal(fs.Parse(os.Args[1:]))
+	if err := fs.Parse(os.Args[1:]); err != nil {
+		log.Fatal(err)
+	}
 
 	logger.Global(logger.New(loggerConfig))
 
