@@ -1,10 +1,10 @@
 package main
 
 import (
-	"errors"
 	"flag"
 	"fmt"
 	"log"
+	"log/slog"
 	"os"
 	"os/exec"
 	"os/signal"
@@ -41,7 +41,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	logger.Global(logger.New(loggerConfig))
+	logger.Init(loggerConfig)
 
 	var wg sync.WaitGroup
 	var success atomic.Uint32
@@ -49,19 +49,23 @@ func main() {
 	for _, address := range *addresses {
 		parts := strings.Split(strings.TrimSpace(address), ":")
 		if len(parts) != 3 {
-			logger.Fatal(errors.New("address has invalid format"))
+			slog.Error("address has invalid format")
+			os.Exit(1)
 		}
 
 		if len(parts[0]) == 0 {
-			logger.Fatal(errors.New("network is required"))
+			slog.Error("network is required")
+			os.Exit(1)
 		}
 
 		if len(parts[1]) == 0 {
-			logger.Fatal(errors.New("host is required"))
+			slog.Error("host is required")
+			os.Exit(1)
 		}
 
 		if len(parts[2]) == 0 {
-			logger.Fatal(errors.New("port is required"))
+			slog.Error("port is required")
+			os.Exit(1)
 		}
 
 		wg.Add(1)
@@ -99,10 +103,13 @@ func main() {
 
 		for signal := range signalsChan {
 			if err := command.Process.Signal(signal); err != nil {
-				logger.Error("sending `%s` signal: %s", signal, err)
+				slog.Error("sending signal", "err", err, "signal", signal)
 			}
 		}
 	}()
 
-	logger.Fatal(command.Run())
+	if err := command.Run(); err != nil {
+		slog.Error("command", "err", err)
+		os.Exit(1)
+	}
 }

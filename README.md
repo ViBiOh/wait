@@ -18,22 +18,13 @@ Be careful when using the CLI values, if someone list the processes on the syste
 
 ```bash
 Usage of wait:
-  -address value
-        [wait] Dial address in the form network:host:port, e.g. tcp:localhost:5432 {WAIT_ADDRESS}
-  -loggerJson
-        [logger] Log format as JSON {WAIT_LOGGER_JSON}
-  -loggerLevel string
-        [logger] Logger level {WAIT_LOGGER_LEVEL} (default "INFO")
-  -loggerLevelKey string
-        [logger] Key for level in JSON {WAIT_LOGGER_LEVEL_KEY} (default "level")
-  -loggerMessageKey string
-        [logger] Key for message in JSON {WAIT_LOGGER_MESSAGE_KEY} (default "message")
-  -loggerTimeKey string
-        [logger] Key for timestamp in JSON {WAIT_LOGGER_TIME_KEY} (default "time")
-  -next string
-        [wait] Action to execute after {WAIT_NEXT}
-  -nextArg value
-        [wait] Args for the action to execute {WAIT_NEXT_ARG}
-  -timeout duration
-        [wait] Timeout of retries {WAIT_TIMEOUT} (default 10s)
+  --address           string slice  [wait] Dial address in the form network:host:port, e.g. tcp:localhost:5432 ${WAIT_ADDRESS}, as a string slice, environment variable separated by ","
+  --loggerJson                      [logger] Log format as JSON ${WAIT_LOGGER_JSON} (default false)
+  --loggerLevel       string        [logger] Logger level ${WAIT_LOGGER_LEVEL} (default "INFO")
+  --loggerLevelKey    string        [logger] Key for level in JSON ${WAIT_LOGGER_LEVEL_KEY} (default "level")
+  --loggerMessageKey  string        [logger] Key for message in JSON ${WAIT_LOGGER_MESSAGE_KEY} (default "msg")
+  --loggerTimeKey     string        [logger] Key for timestamp in JSON ${WAIT_LOGGER_TIME_KEY} (default "time")
+  --next              string        [wait] Action to execute after ${WAIT_NEXT}
+  --nextArg           string slice  [wait] Args for the action to execute ${WAIT_NEXT_ARG}, as a string slice, environment variable separated by ","
+  --timeout           duration      [wait] Timeout of retries ${WAIT_TIMEOUT} (default 10s)
 ```
