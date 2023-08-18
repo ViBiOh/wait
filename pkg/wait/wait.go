@@ -1,10 +1,9 @@
 package wait
 
 import (
+	"log/slog"
 	"net"
 	"time"
-
-	"github.com/ViBiOh/httputils/v4/pkg/logger"
 )
 
 func Wait(network, addr string, timeout time.Duration) bool {
@@ -40,12 +39,12 @@ func Wait(network, addr string, timeout time.Duration) bool {
 func dial(network, addr string) bool {
 	conn, err := net.DialTimeout(network, addr, time.Second)
 	if err != nil {
-		logger.Warn("dial `%s` on `%s`: %s", addr, network, err)
+		slog.Warn("dial", "err", err, "addr", addr, "network", network)
 		return false
 	}
 
 	if closeErr := conn.Close(); closeErr != nil {
-		logger.Warn("close dial: %s", err)
+		slog.Warn("close", "err", err)
 	}
 
 	return true
