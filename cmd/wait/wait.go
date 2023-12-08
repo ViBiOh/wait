@@ -103,13 +103,13 @@ func main() {
 
 		for signal := range signalsChan {
 			if err := command.Process.Signal(signal); err != nil {
-				slog.Error("sending signal", "err", err, "signal", signal)
+				slog.Error("sending signal", "error", err, "signal", signal)
 			}
 		}
 	}()
 
 	if err := command.Run(); err != nil {
-		slog.Error("command", "err", err)
+		slog.Error("command", "error", err)
 		os.Exit(1)
 	}
 }

@@ -39,12 +39,12 @@ func Wait(network, addr string, timeout time.Duration) bool {
 func dial(network, addr string) bool {
 	conn, err := net.DialTimeout(network, addr, time.Second)
 	if err != nil {
-		slog.Warn("dial", "err", err, "addr", addr, "network", network)
+		slog.Warn("dial", "error", err, "addr", addr, "network", network)
 		return false
 	}
 
 	if closeErr := conn.Close(); closeErr != nil {
-		slog.Warn("close", "err", err)
+		slog.Warn("close", "error", err)
 	}
 
 	return true
