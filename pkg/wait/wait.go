@@ -1,6 +1,7 @@
 package wait
 
 import (
+	"context"
 	"log/slog"
 	"net"
 	"time"
@@ -39,12 +40,12 @@ func Wait(network, addr string, timeout time.Duration) bool {
 func dial(network, addr string) bool {
 	conn, err := net.DialTimeout(network, addr, time.Second)
 	if err != nil {
-		slog.Warn("dial", "error", err, "addr", addr, "network", network)
+		slog.LogAttrs(context.Background(), slog.LevelWarn, "dial", slog.String("addr", addr), slog.String("network", network), slog.Any("error", err))
 		return false
 	}
 
 	if closeErr := conn.Close(); closeErr != nil {
-		slog.Warn("close", "error", err)
+		slog.LogAttrs(context.Background(), slog.LevelWarn, "close", slog.Any("error", err))
 	}
 
 	return true

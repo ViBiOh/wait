@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"flag"
 	"fmt"
 	"log"
@@ -103,13 +104,13 @@ func main() {
 
 		for signal := range signalsChan {
 			if err := command.Process.Signal(signal); err != nil {
-				slog.Error("sending signal", "error", err, "signal", signal)
+				slog.LogAttrs(context.Background(), slog.LevelError, "sending signal", slog.String("signal", signal.String()), slog.Any("error", err))
 			}
 		}
 	}()
 
 	if err := command.Run(); err != nil {
-		slog.Error("command", "error", err)
+		slog.LogAttrs(context.Background(), slog.LevelError, "command", slog.Any("error", err))
 		os.Exit(1)
 	}
 }
