@@ -2,7 +2,6 @@
 
 [![Build](https://github.com/ViBiOh/wait/workflows/Build/badge.svg)](https://github.com/ViBiOh/wait/actions)
 [![codecov](https://codecov.io/gh/ViBiOh/wait/branch/main/graph/badge.svg)](https://codecov.io/gh/ViBiOh/wait)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ViBiOh_wait&metric=alert_status)](https://sonarcloud.io/dashboard?id=ViBiOh_wait)
 
 ## Getting started
 
