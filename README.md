@@ -1,7 +1,6 @@
 # wait
 
 [![Build](https://github.com/ViBiOh/wait/workflows/Build/badge.svg)](https://github.com/ViBiOh/wait/actions)
-[![codecov](https://codecov.io/gh/ViBiOh/wait/branch/main/graph/badge.svg)](https://codecov.io/gh/ViBiOh/wait)
 
 ## Getting started
 
