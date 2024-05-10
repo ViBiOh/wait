@@ -39,7 +39,9 @@ func main() {
 
 	_ = fs.Parse(os.Args[1:])
 
-	logger.Init(loggerConfig)
+	ctx := context.Background()
+
+	logger.Init(ctx, loggerConfig)
 
 	var wg sync.WaitGroup
 	var success atomic.Uint32
