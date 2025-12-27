@@ -16,7 +16,7 @@ Be careful when using the CLI values, if someone list the processes on the syste
 
 ```bash
 Usage of wait:
-  --address           string slice  [wait] Dial address in the form network:host:port, e.g. tcp:localhost:5432 ${WAIT_ADDRESS}, as a string slice, environment variable separated by ","
+  --address           string slice  [wait] Dial address in the form network:host:port, e.g. tcp:127.0.0.1:5432 ${WAIT_ADDRESS}, as a string slice, environment variable separated by ","
   --loggerJson                      [logger] Log format as JSON ${WAIT_LOGGER_JSON} (default false)
   --loggerLevel       string        [logger] Logger level ${WAIT_LOGGER_LEVEL} (default "INFO")
   --loggerLevelKey    string        [logger] Key for level in JSON ${WAIT_LOGGER_LEVEL_KEY} (default "level")

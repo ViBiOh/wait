@@ -32,7 +32,7 @@ func main() {
 
 	loggerConfig := logger.Flags(fs, "logger")
 
-	addresses := flags.New("Address", "Dial address in the form network:host:port, e.g. tcp:localhost:5432").DocPrefix("wait").StringSlice(fs, nil, nil)
+	addresses := flags.New("Address", "Dial address in the form network:host:port, e.g. tcp:127.0.0.1:5432").DocPrefix("wait").StringSlice(fs, nil, nil)
 	timeout := flags.New("Timeout", "Timeout of retries").DocPrefix("wait").Duration(fs, time.Second*10, nil)
 	next := flags.New("Next", "Action to execute after").DocPrefix("wait").String(fs, "", nil)
 	args := flags.New("NextArg", "Args for the action to execute").DocPrefix("wait").StringSlice(fs, nil, nil)
