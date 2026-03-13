@@ -15,7 +15,7 @@ import (
 	"time"
 
 	"github.com/ViBiOh/flags"
-	"github.com/ViBiOh/wait/pkg/logger"
+	"github.com/ViBiOh/httputils/v4/pkg/logger"
 	"github.com/ViBiOh/wait/pkg/wait"
 )
 
